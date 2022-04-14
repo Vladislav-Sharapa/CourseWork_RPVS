@@ -2,16 +2,22 @@
 using System.Drawing;
 using System.Windows.Forms;
 using CourseWork_RPVS.Forms;
+using CourseWork_RPVS.Classes.Data;
 
 namespace CourseWork_RPVS {
     public partial class MainMenu : Form {
         private MainForm mainForm = new MainForm();
-        private SaveDataMenu saveDataMenu = new SaveDataMenu();
         private LoadDataMenu loadDataMenu = new LoadDataMenu();
+        private SaveInWordMenu saveInWordMenu = new SaveInWordMenu();
+        private SaveInExcelMenu saveInExcelMenu = new SaveInExcelMenu();
+        // для сохранения данных
+        private SaveData save = new SaveData();
 
+        // для изменения цвета кнопок
         private Button currentButton;
         private Random random = new Random();
         private int temporaryIndex;
+        // для переключения форм
         private Form activeForm;
         public MainMenu() {
             // функция для отображения загрузочного экрана
@@ -27,7 +33,7 @@ namespace CourseWork_RPVS {
             SplashScreen newForm = new SplashScreen();
             newForm.ShowDialog();
         }
-
+        // случайно выбираем цвет из списка ColorList
         private Color SelectThemeColor() {
             int indexOfColor = random.Next(ThemeColor.colorList.Count);
             string color;
@@ -38,6 +44,7 @@ namespace CourseWork_RPVS {
             color = ThemeColor.colorList[indexOfColor];
             return ColorTranslator.FromHtml(color);
         }
+        // изменяем внешний вид выбранной кнопки
         private void ActiveButton(object btnSender) {
             if (btnSender != null) {
                 if (currentButton != (Button)btnSender) {
@@ -89,35 +96,31 @@ namespace CourseWork_RPVS {
             GraphicSubMenu.BackColor = ThemeColor.SecondaryColor;
         }
 
-        private void graphicButton_Click(object sender, EventArgs e) {
+        private void GraphicButton_Click(object sender, EventArgs e) {
             OpenChildForm(mainForm, sender);
             ShowSubMenu();
         }
 
-        private void saveWordButton_Click(object sender, EventArgs e) {
+        private void SaveWordButton_Click(object sender, EventArgs e) {
+            OpenChildForm(saveInWordMenu, sender);
+            HideSubMenu();
+        }
+
+        private void SaveExcelButton_Click(object sender, EventArgs e) {
+            OpenChildForm(saveInExcelMenu, sender);
+            HideSubMenu();
+        }
+
+        private void SaveDataButton_Click(object sender, EventArgs e) {
             activeForm.Visible = false;
             ActiveButton(sender);
             HideSubMenu();
         }
-
-        private void saveExcelButton_Click(object sender, EventArgs e) {
+        private void HelpButton_Click(object sender, EventArgs e) {
             activeForm.Visible = false;
             ActiveButton(sender);
             HideSubMenu();
         }
-
-        private void saveDataButton_Click(object sender, EventArgs e) {
-            activeForm.Visible = false;
-            ActiveButton(sender);
-            HideSubMenu();
-        }
-
-        private void helpButton_Click(object sender, EventArgs e) {
-            activeForm.Visible = false;
-            ActiveButton(sender);
-            HideSubMenu();
-        }
-
         private void CloseButton_Click(object sender, EventArgs e) {
             DisplayStandartColorTheme(sender);
             activeForm.Visible = false;
@@ -125,29 +128,26 @@ namespace CourseWork_RPVS {
             HideSubMenu();
             PageName.Text = "HOME";
         }
-        
         private void DisplayStandartColorTheme(object btnSender) {
             if (CloseButton.Visible) {
                 DisableButton();
-                LogoPanel.BackColor = Color.FromArgb(51, 51, 76);
+                LogoPanel.BackColor = Color.FromArgb(39, 39, 58);
                 NameFormPanel.BackColor = Color.FromArgb(51, 51, 76);
                 currentButton = (Button)btnSender;
             }
         }
-
-        private void exitButton_Click(object sender, EventArgs e) {
-            this.Close();
+        private void LoadData_Click(object sender, EventArgs e) {
+            save.LoadDataInFile();
+            mainForm.GraphicsScreen.Invalidate();
+        }
+        private void SaveData_Click(object sender, EventArgs e) {
+            save.SaveDataInINIFile();
         }
 
-        private void maximizeButton_Click(object sender, EventArgs e) {
-            if (WindowState == FormWindowState.Normal)
-                this.WindowState = FormWindowState.Maximized;
-            else
-                this.WindowState = FormWindowState.Normal;
-        }
-
-        private void minimizeButton_Click(object sender, EventArgs e) {
-            this.WindowState = FormWindowState.Minimized;
+        private void ChangeColorButton_Click(object sender, EventArgs e) {
+            ChangeColorForm colorForm = new ChangeColorForm();
+            colorForm.ShowDialog();
+            mainForm.GraphicsScreen.Invalidate();
         }
     }
 }

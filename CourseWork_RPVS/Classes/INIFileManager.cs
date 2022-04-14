@@ -2,7 +2,7 @@
 using System.Text;
 
 namespace CourseWork_RPVS.Classes {
-    class INIFile {
+    class INIFileManager {
         //Импорт функции GetPrivateProfileString (для чтения значений) из библиотеки kernel32.dll
         [DllImport("kernel32.dll", EntryPoint = "GetPrivateProfileString")]
         private static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder buffer, int size, string path);
@@ -14,7 +14,7 @@ namespace CourseWork_RPVS.Classes {
         public string Path { get; set;}
         private const int SIZE = 1024; //Максимальный размер (для чтения значения из файла)
 
-        public INIFile(string path) {
+        public INIFileManager(string path) {
             this.Path = path;
         }
 

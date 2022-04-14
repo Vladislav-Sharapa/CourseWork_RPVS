@@ -64,24 +64,28 @@ namespace CourseWork_RPVS {
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.BackColor = System.Drawing.Color.LightCyan;
+            this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.groupBox1.Controls.Add(this.thirdFunctionRB);
             this.groupBox1.Controls.Add(this.secondFunctionRB);
             this.groupBox1.Controls.Add(this.firstFunctionRB);
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox1.Location = new System.Drawing.Point(646, 22);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(233, 99);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Выбор функции";
+            this.groupBox1.Text = "Function selection";
             // 
             // thirdFunctionRB
             // 
             this.thirdFunctionRB.AutoSize = true;
             this.thirdFunctionRB.Location = new System.Drawing.Point(21, 76);
             this.thirdFunctionRB.Name = "thirdFunctionRB";
-            this.thirdFunctionRB.Size = new System.Drawing.Size(130, 21);
+            this.thirdFunctionRB.Size = new System.Drawing.Size(147, 21);
             this.thirdFunctionRB.TabIndex = 2;
-            this.thirdFunctionRB.Text = "thirdFunctionRB";
+            this.thirdFunctionRB.Text = "F(x, y) = Cos(x) + y";
             this.thirdFunctionRB.UseVisualStyleBackColor = true;
             this.thirdFunctionRB.CheckedChanged += new System.EventHandler(this.Function_CheckedChanged);
             // 
@@ -90,9 +94,9 @@ namespace CourseWork_RPVS {
             this.secondFunctionRB.AutoSize = true;
             this.secondFunctionRB.Location = new System.Drawing.Point(21, 49);
             this.secondFunctionRB.Name = "secondFunctionRB";
-            this.secondFunctionRB.Size = new System.Drawing.Size(148, 21);
+            this.secondFunctionRB.Size = new System.Drawing.Size(199, 21);
             this.secondFunctionRB.TabIndex = 1;
-            this.secondFunctionRB.Text = "secondFunctionRB";
+            this.secondFunctionRB.Text = "F(x, y) = (Cos(x))^2 - Sin(y)";
             this.secondFunctionRB.UseVisualStyleBackColor = false;
             this.secondFunctionRB.CheckedChanged += new System.EventHandler(this.Function_CheckedChanged);
             // 
@@ -102,10 +106,10 @@ namespace CourseWork_RPVS {
             this.firstFunctionRB.Checked = true;
             this.firstFunctionRB.Location = new System.Drawing.Point(21, 22);
             this.firstFunctionRB.Name = "firstFunctionRB";
-            this.firstFunctionRB.Size = new System.Drawing.Size(125, 21);
+            this.firstFunctionRB.Size = new System.Drawing.Size(177, 21);
             this.firstFunctionRB.TabIndex = 0;
             this.firstFunctionRB.TabStop = true;
-            this.firstFunctionRB.Text = "firstFunctionRB";
+            this.firstFunctionRB.Text = "F(x, y) = Sin(x) + Cos(y)";
             this.firstFunctionRB.UseVisualStyleBackColor = true;
             this.firstFunctionRB.CheckedChanged += new System.EventHandler(this.Function_CheckedChanged);
             // 
@@ -220,7 +224,7 @@ namespace CourseWork_RPVS {
             this.Reduce.Name = "Reduce";
             this.Reduce.Size = new System.Drawing.Size(182, 28);
             this.Reduce.TabIndex = 24;
-            this.Reduce.Text = "Уменьшить";
+            this.Reduce.Text = "Decrease";
             this.Reduce.UseVisualStyleBackColor = false;
             this.Reduce.Click += new System.EventHandler(this.Reduce_Click);
             // 
@@ -234,7 +238,7 @@ namespace CourseWork_RPVS {
             this.Enlarge.Name = "Enlarge";
             this.Enlarge.Size = new System.Drawing.Size(182, 28);
             this.Enlarge.TabIndex = 23;
-            this.Enlarge.Text = "Увеличить";
+            this.Enlarge.Text = "Increase";
             this.Enlarge.UseVisualStyleBackColor = false;
             this.Enlarge.Click += new System.EventHandler(this.Enlarge_Click);
             // 
@@ -347,7 +351,7 @@ namespace CourseWork_RPVS {
 
         #endregion
 
-        private System.Windows.Forms.PictureBox GraphicsScreen;
+        public System.Windows.Forms.PictureBox GraphicsScreen;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton thirdFunctionRB;
         private System.Windows.Forms.RadioButton secondFunctionRB;

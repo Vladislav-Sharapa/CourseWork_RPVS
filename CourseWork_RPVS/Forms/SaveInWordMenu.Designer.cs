@@ -26,13 +26,14 @@ namespace CourseWork_RPVS.Forms {
         private void InitializeComponent() {
             this.SuspendLayout();
             // 
-            // SaveInWordMenucs
+            // SaveInWordMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(873, 477);
-            this.Name = "SaveInWordMenucs";
-            this.Text = "SaveInWordMenucs";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "SaveInWordMenu";
+            this.Text = "Word Menu";
             this.ResumeLayout(false);
 
         }

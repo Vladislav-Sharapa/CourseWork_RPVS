@@ -6,7 +6,7 @@ namespace CourseWork_RPVS {
     public partial class MainForm : Form {
 
         /// <summary>
-        /// <object name="ControlOutputGraphicsObject">объект класса для контроля графики</object>
+        /// <object name="ControlOutputGraphicsObject">объект класса для отображения графики</object>
         /// </summary>
         private ControlOutputGraphics ControlOutputGraphicsObject;
         private Function func;
@@ -58,33 +58,27 @@ namespace CourseWork_RPVS {
         private void Down_MouseUp(object sender, MouseEventArgs e) {
             ControlOutputGraphicsObject.updating = false;
         }
-
         private void Down_MouseDown(object sender, MouseEventArgs e) {
             ControlOutputGraphicsObject.updating = true;
             Thread updating = new Thread(ControlOutputGraphicsObject.UpdateDownClick);
             updating.Start();
         }
-
         private void Right_MouseUp(object sender, MouseEventArgs e) {
             ControlOutputGraphicsObject.updating = false;
         }
-
         private void Right_MouseDown(object sender, MouseEventArgs e) {
             ControlOutputGraphicsObject.updating = true;
             Thread updating = new Thread(ControlOutputGraphicsObject.UpdateRightClick);
             updating.Start();
         }
-
         private void Left_MouseUp(object sender, MouseEventArgs e) {
             ControlOutputGraphicsObject.updating = false;
         }
-
         private void Left_MouseDown(object sender, MouseEventArgs e) {
             ControlOutputGraphicsObject.updating = true;
             Thread updating = new Thread(ControlOutputGraphicsObject.UpdateLeftClick);
             updating.Start();
         }
-
         private void XUp_Click(object sender, System.EventArgs e) {
             ControlOutputGraphicsObject.XUpClick();
         }
@@ -92,33 +86,23 @@ namespace CourseWork_RPVS {
         private void XDown_Click(object sender, System.EventArgs e) {
             ControlOutputGraphicsObject.XDownClick();
         }
-
         private void YUp_Click(object sender, System.EventArgs e) {
             ControlOutputGraphicsObject.YUpClick();
         }
-
         private void YDown_Click(object sender, System.EventArgs e) {
             ControlOutputGraphicsObject.YDownClick();
         }
-
         private void ZUp_Click(object sender, System.EventArgs e) {
             ControlOutputGraphicsObject.ZYpClick();
         }
-
         private void ZDown_Click(object sender, System.EventArgs e) {
             ControlOutputGraphicsObject.ZDownClick();
         }
-
         private void AllUp_Click(object sender, System.EventArgs e) {
             ControlOutputGraphicsObject.AllUpClick();
         }
-
         private void AllDown_Click(object sender, System.EventArgs e) {
             ControlOutputGraphicsObject.AllDownClick();
-        }
-
-        private void CloseButton_Click(object sender, System.EventArgs e) {
-            this.Visible = false;
         }
     }
 }
