@@ -10,7 +10,9 @@ namespace CourseWork_RPVS {
     class Graphics {
         internal static void ShowGraphics(ControlOutputGraphics obj, PaintEventArgs e) {
 
+            // соответствуют координатам точек, которые отображаются на экране монитора;
             int xx1, xx2, yy1, yy2;
+            // предназначены для вывода плоскости из 4-х точек.
             int[] xx = new int[4];
             int[] yy = new int[4];
             const double h0 = 0;

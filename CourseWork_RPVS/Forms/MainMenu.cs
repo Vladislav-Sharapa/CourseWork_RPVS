@@ -11,7 +11,7 @@ namespace CourseWork_RPVS {
         private SaveInWordMenu saveInWordMenu = new SaveInWordMenu();
         private SaveInExcelMenu saveInExcelMenu = new SaveInExcelMenu();
         // для сохранения данных
-        private SaveData save = new SaveData();
+        private SaveConfig save = new SaveConfig();
 
         // для изменения цвета кнопок
         private Button currentButton;
@@ -21,7 +21,7 @@ namespace CourseWork_RPVS {
         private Form activeForm;
         public MainMenu() {
             // функция для отображения загрузочного экрана
-            SplashScreenShow();
+            //SplashScreenShow();
             InitializeComponent();
             CustomizeDesign();
         }
@@ -74,6 +74,7 @@ namespace CourseWork_RPVS {
             if (activeForm != null) activeForm.Visible = false;
             ActiveButton(buttonSender);
             this.CloseButton.Visible = true;  // turn on close button on MainMenuForm
+            //this.CloseButton.BackColor = ThemeColor.PrimaryColor; 
             activeForm = childForm;
             childForm.TopLevel = false;
             childForm.Dock = DockStyle.Fill;

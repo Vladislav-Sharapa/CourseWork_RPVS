@@ -10,24 +10,28 @@ namespace CourseWork_RPVS {
         public static double Lx { get; set; } // ось X
         public static double Ly { get; set; } // ось Y
         public static double Lz { get; set; } // ось Z
-        public int Widtth { get; set; } // ширина
-        public int Heighht { get; set; } // высота
+        public int Widtth { get; set; } // ширина графика
+        public int Heighht { get; set; } // высота графика
+        /// переменные X_min, Y_min, X_max, Y_max вещественного типа
+        /// представляют реальные координаты параллелепипеда, в котором выводится график функции
         public static double XMin { get; set; }
         public static double XMax { get; set; }
         public static double YMin { get; set; }
         public static double YMax { get; set; }
+        /// переменные alfa, beta вещественного типа
+        /// отображают углы наблюдения за графиком функции.
         public static double Alpha { get; set; }
         public static double Beta { get; set; }
         public double X0 { get; set; }
         public double Y0 { get; set; }
         public double Z0 { get; set; }
-        public double A { get; set; }
-        public Function Func { get; set; }
-        public static Color color { get; set; }
+        public double A { get; set; } //  коэффициент перспективы
+        public Function Func { get; set; } // отображаемая функция
+        public static string funcString { get; set; }
+        public static Color color { get; set; } // цвет функции
         public static int R { get; set; }
         public static int G { get; set; }
-        public static int B { get; set; }
-
+        public static int B { get; set; } 
         public PictureBox GraphicsScreen { get; set; }
 
         /// <summary>

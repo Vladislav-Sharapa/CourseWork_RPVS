@@ -90,10 +90,11 @@ namespace CourseWork_RPVS {
             this.CloseButton.BackColor = System.Drawing.SystemColors.Control;
             this.CloseButton.FlatAppearance.BorderSize = 0;
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseButton.Location = new System.Drawing.Point(7, 7);
+            this.CloseButton.Location = new System.Drawing.Point(12, 7);
             this.CloseButton.Margin = new System.Windows.Forms.Padding(4);
             this.CloseButton.Name = "CloseButton";
-            this.CloseButton.Size = new System.Drawing.Size(38, 32);
+            this.CloseButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.CloseButton.Size = new System.Drawing.Size(35, 32);
             this.CloseButton.TabIndex = 36;
             this.CloseButton.Text = "X";
             this.CloseButton.UseVisualStyleBackColor = false;

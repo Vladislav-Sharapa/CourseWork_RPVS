@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Drawing.Imaging;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -10,33 +11,55 @@ namespace CourseWork_RPVS {
         /// </summary>
         private ControlOutputGraphics ControlOutputGraphicsObject;
         private Function func;
+        // для скриншота области с графиком
+        private static PictureBox pictureScreen; 
 
         public MainForm() {
 
             InitializeComponent();
             this.func = new FirstFunction();
             this.ControlOutputGraphicsObject = new ControlOutputGraphics(GraphicsScreen);
+            ControlOutputGraphics.funcString = firstFunctionRB.Text;
             this.ControlOutputGraphicsObject.SetFunction(func);
             firstFunctionRB.Checked = true;
+            pictureScreen = GraphicsScreen;
         }
 
         private void Function_CheckedChanged(object sender, System.EventArgs e) {
             if (firstFunctionRB.Checked) {
                 this.func = new FirstFunction();
                 ControlOutputGraphicsObject.SetFunction(func);
+                ControlOutputGraphics.funcString = firstFunctionRB.Text;
                 System.Console.WriteLine("First");
             }
             else if (secondFunctionRB.Checked) {
                 this.func = new SecondFunction();
                 ControlOutputGraphicsObject.SetFunction(func);
+                ControlOutputGraphics.funcString = secondFunctionRB.Text;
                 System.Console.WriteLine("Second");
             }
             else if (thirdFunctionRB.Checked) {
                 this.func = new ThirdFunction();
                 ControlOutputGraphicsObject.SetFunction(func);
+                ControlOutputGraphics.funcString = thirdFunctionRB.Text;
                 System.Console.WriteLine("Third");
             }
             GraphicsScreen.Invalidate();
+        }
+        public static void GetScreenOfGraphics() {
+            // запоминаем размеры контрола
+            Size szCurrent = pictureScreen.Size;
+            //ресайзим контрол до возможного максимума перед скриншотом
+            pictureScreen.AutoSize = true;
+            //создаем картинку нужных размеров
+            Bitmap bitmap = new Bitmap(pictureScreen.Width, pictureScreen.Height);
+            //копируем изображение нужного контрола в bmp
+            pictureScreen.DrawToBitmap(bitmap, pictureScreen.ClientRectangle);
+            //возвращаем изначальные настройки контрола
+            pictureScreen.AutoSize = false;
+            pictureScreen.Size = szCurrent;
+
+            bitmap.Save(System.IO.Path.GetFullPath("../../Saves/screenshot_01.jpg"), ImageFormat.Jpeg);
         }
         private void GraphicsScreen_Paint(object sender, PaintEventArgs e) {
             Graphics.ShowGraphics(ControlOutputGraphicsObject, e);
